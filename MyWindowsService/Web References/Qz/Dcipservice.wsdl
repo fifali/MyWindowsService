@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:ns="http://serviceproxy.dareway.com" xmlns:axis2="http://service.communication.service.dareway.com" xmlns:ns1="http://org.apache.axis2/xsd" targetNamespace="http://service.communication.service.dareway.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation>Dcipservice</wsdl:documentation>
+  <wsdl:types>
+    <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://serviceproxy.dareway.com">
+      <xs:element name="userTransApplication">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="method" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="jylsh" type="xs:double" />
+            <xs:element minOccurs="0" name="inParameters" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="outParameters" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="ydbm" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="model" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="userTransApplicationResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="userTransApplicationRequest">
+    <wsdl:part name="parameters" element="ns:userTransApplication" />
+  </wsdl:message>
+  <wsdl:message name="userTransApplicationResponse">
+    <wsdl:part name="parameters" element="ns:userTransApplicationResponse" />
+  </wsdl:message>
+  <wsdl:portType name="DcipservicePortType">
+    <wsdl:operation name="userTransApplication">
+      <wsdl:input wsaw:Action="urn:userTransApplication" message="axis2:userTransApplicationRequest" />
+      <wsdl:output wsaw:Action="urn:userTransApplicationResponse" message="axis2:userTransApplicationResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DcipserviceSoap11Binding" type="axis2:DcipservicePortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="userTransApplication">
+      <soap:operation soapAction="urn:userTransApplication" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="DcipserviceSoap12Binding" type="axis2:DcipservicePortType">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="userTransApplication">
+      <soap12:operation soapAction="urn:userTransApplication" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="DcipserviceHttpBinding" type="axis2:DcipservicePortType">
+    <http:binding verb="POST" />
+    <wsdl:operation name="userTransApplication">
+      <http:operation location="Dcipservice/userTransApplication" />
+      <wsdl:input>
+        <mime:content part="userTransApplication" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="userTransApplication" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Dcipservice">
+    <wsdl:port name="DcipserviceHttpSoap11Endpoint" binding="axis2:DcipserviceSoap11Binding">
+      <soap:address location="http://220.191.237.186:7001/dcip/services/Dcipservice.DcipserviceHttpSoap11Endpoint/" />
+    </wsdl:port>
+    <wsdl:port name="DcipserviceHttpSoap12Endpoint" binding="axis2:DcipserviceSoap12Binding">
+      <soap12:address location="http://220.191.237.186:7001/dcip/services/Dcipservice.DcipserviceHttpSoap12Endpoint/" />
+    </wsdl:port>
+    <wsdl:port name="DcipserviceHttpEndpoint" binding="axis2:DcipserviceHttpBinding">
+      <http:address location="http://220.191.237.186:7001/dcip/services/Dcipservice.DcipserviceHttpEndpoint/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

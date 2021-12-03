@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="MyWindowsService.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="MyWindowsService_Qz_Dcipservice" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://220.191.237.186:7001/dcip/services/Dcipservice.DcipserviceHttpSoap11Endpoint/</Value>
+    </Setting>
+    <Setting Name="MyWindowsService_Gy_HelloSAM" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://10.81.212.117:10000/helloWorld</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

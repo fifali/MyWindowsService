@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:ns2="http://schemas.xmlsoap.org/soap/http" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://impl.shing.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://shing.com/" name="HelloSAM" targetNamespace="http://impl.shing.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import namespace="http://shing.com/" location="http://10.81.212.117:10000/helloWorld?wsdl=HelloWorld.wsdl" />
+  <wsdl:types />
+  <wsdl:binding name="HelloSAMSoapBinding" type="ns1:HelloWorld">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="sayHi">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="sayHi">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="sayHiResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="HelloSAM">
+    <wsdl:port name="HelloWorldsPort" binding="tns:HelloSAMSoapBinding">
+      <soap:address location="http://10.81.212.117:10000/helloWorld" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
